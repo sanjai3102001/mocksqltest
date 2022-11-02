@@ -1,8 +1,3 @@
-//
-//  go-unit-test-sql
-//
-//
-
 package repository
 
 import (
@@ -19,9 +14,9 @@ import (
 
 var u = &r.UserModel{
 	ID:    uuid.New().String(),
-	Name:  "Momo",
-	Email: "momo@mail.com",
-	Phone: "08123456789",
+	Name:  "sanjai",
+	Email: "sanjai@mail.com",
+	Phone: "9488900582",
 }
 
 func NewMock() (*sql.DB, sqlmock.Sqlmock) {
