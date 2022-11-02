@@ -1,8 +1,3 @@
-//
-//  go-unit-test-sql
-//
-//
-
 package repository
 
 import (
