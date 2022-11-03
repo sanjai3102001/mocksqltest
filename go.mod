@@ -12,5 +12,7 @@ require (
 	github.com/moemoe89/go-unit-test-sql v0.0.0-20200619083906-541278f731fe // indirect
 	github.com/pmezard/go-difflib v1.0.0 // indirect
 	github.com/stretchr/testify v1.8.1 // indirect
+	golang.org/x/sys v0.1.0 // indirect
+	golang.org/x/tools v0.2.0 // indirect
 	gopkg.in/yaml.v3 v3.0.1 // indirect
 )
