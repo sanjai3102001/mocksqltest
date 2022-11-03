@@ -2,7 +2,7 @@
 //  go-unit-test-sql
 //
 
-package repository
+package main
 
 // Repository represent the repositories
 type Repository interface {
