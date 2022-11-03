@@ -10,7 +10,6 @@ import (
 	_ "github.com/go-sql-driver/mysql"
 )
 
-// repository represent the repository model
 type repository struct {
 	db *sql.DB
 }

@@ -14,7 +14,6 @@ type Repository interface {
 	Delete(id string) error
 }
 
-// UserModel represent the user model
 type UserModel struct {
 	ID    string
 	Name  string
