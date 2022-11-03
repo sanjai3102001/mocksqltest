@@ -32,7 +32,7 @@ func NewRepository(dialect, dsn string, idleConn, maxConn int) (repo.Repository,
 	return &repository{db}, nil
 }
 
-// Close attaches the provider and close the connection
+// Close the connection
 func (r *repository) Close() {
 	r.db.Close()
 }
