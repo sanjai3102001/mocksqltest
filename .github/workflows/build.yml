@@ -19,7 +19,7 @@ jobs:
   uses: actions/upload-artifact@v2
   with:
     name: code-coverage-report
-    path: mocksqltest/reports.json
+    path: reports.json
     retention-days: 2
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}  # Needed to get PR information, if any
