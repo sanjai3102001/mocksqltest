@@ -73,8 +73,7 @@ func (r *repository) Find() ([]*repo.UserModel, error) {
 			&user.ID,
 			&user.Name,
 			&user.Email,
-			&user.Phone,
-		)
+			&user.Phone)
 
 		if err != nil {
 			// return nil, err
