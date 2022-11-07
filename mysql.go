@@ -58,11 +58,8 @@ func (r *repository) Find() ([]*repo.UserModel, error) {
 
 	ctx, cancel := context.WithTimeout(context.Background(), 5*time.Second)
 	defer cancel()
-
-	// rows, err := r.db.QueryContext(ctx, "SELECT id, name, email, phone FROM users")
 	rows, _ := r.db.QueryContext(ctx, "SELECT id, name, email, phone FROM users")
 	if rows == nil {
-		// return nil, err
 		fmt.Println("got an error while getting the rows")
 	}
 	defer rows.Close()
