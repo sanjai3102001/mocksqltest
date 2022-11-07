@@ -64,6 +64,8 @@ func (r *repository) Find() ([]*repo.UserModel, error) {
 	if err != nil {
 		// return nil, err
 		fmt.Println("got an error while getting the rows")
+	} else {
+		return nil, err
 	}
 	defer rows.Close()
 
@@ -77,6 +79,8 @@ func (r *repository) Find() ([]*repo.UserModel, error) {
 
 		if err != nil {
 			fmt.Print("got an error while scanning")
+		} else {
+			return nil, err
 		}
 		users = append(users, user)
 	}
