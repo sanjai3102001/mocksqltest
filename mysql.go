@@ -63,7 +63,7 @@ func (r *repository) Find() ([]*repo.UserModel, error) {
 	rows, err := r.db.QueryContext(ctx, "SELECT id, name, email, phone FROM users")
 	if err != nil {
 		// return nil, err
-		fmt.Println("got an error while getting the rows")
+		fmt.Println("got an error while getting the rows", err)
 	}
 	defer rows.Close()
 
