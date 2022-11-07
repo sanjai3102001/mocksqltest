@@ -73,7 +73,7 @@ func (r *repository) Find() ([]*repo.UserModel, error) {
 			&user.Phone)
 
 		if err != nil {
-			fmt.Print("got an error while scanning", err)
+			fmt.Print("got an error while scanning")
 		}
 		users = append(users, user)
 	}
