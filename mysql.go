@@ -3,6 +3,7 @@ package main
 import (
 	"context"
 	"database/sql"
+	"fmt"
 	"time"
 
 	repo "github.com/moemoe89/go-unit-test-sql/repository"
@@ -58,9 +59,11 @@ func (r *repository) Find() ([]*repo.UserModel, error) {
 	ctx, cancel := context.WithTimeout(context.Background(), 5*time.Second)
 	defer cancel()
 
+	// rows, err := r.db.QueryContext(ctx, "SELECT id, name, email, phone FROM users")
 	rows, err := r.db.QueryContext(ctx, "SELECT id, name, email, phone FROM users")
 	if err != nil {
-		return nil, err
+		// return nil, err
+		fmt.Println("got an error while getting the rows")
 	}
 	defer rows.Close()
 
@@ -74,7 +77,8 @@ func (r *repository) Find() ([]*repo.UserModel, error) {
 		)
 
 		if err != nil {
-			return nil, err
+			// return nil, err
+			fmt.Print("got an error while scanning")
 		}
 		users = append(users, user)
 	}
