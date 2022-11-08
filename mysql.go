@@ -3,6 +3,7 @@ package main
 import (
 	"context"
 	"database/sql"
+	"fmt"
 	"time"
 
 	repo "github.com/moemoe89/go-unit-test-sql/repository"
@@ -73,7 +74,8 @@ func (r *repository) Find() ([]*repo.UserModel, error) {
 		)
 
 		if err != nil {
-			return nil, err
+			// return nil, err
+			fmt.Println("error occured")
 		}
 		users = append(users, user)
 	}
