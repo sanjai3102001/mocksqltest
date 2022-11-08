@@ -3,7 +3,7 @@ package main
 import (
 	"context"
 	"database/sql"
-	"fmt"
+	"errors"
 	"time"
 
 	repo "github.com/moemoe89/go-unit-test-sql/repository"
@@ -60,7 +60,7 @@ func (r *repository) Find() ([]*repo.UserModel, error) {
 	defer cancel()
 	rows, err := r.db.QueryContext(ctx, "SELECT id, name, email, phone FROM users")
 	if err != nil {
-		fmt.Errorf("unable to find %v", err)
+		return nil, errors.New("error occured")
 	}
 	defer rows.Close()
 

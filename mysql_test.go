@@ -79,9 +79,9 @@ func TestFind(t *testing.T) {
 
 	mock.ExpectQuery(query).WillReturnRows(rows)
 
-	users, _ := repo.Find()
+	users, err := repo.Find()
 	assert.NotEmpty(t, users)
-	// assert.NoError(t, err)
+	assert.NoError(t, err)
 	assert.Len(t, users, 1)
 }
 
