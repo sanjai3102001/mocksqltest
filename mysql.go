@@ -57,6 +57,7 @@ func (r *repository) Find() ([]*repo.UserModel, error) {
 
 	ctx, cancel := context.WithTimeout(context.Background(), 5*time.Second)
 	defer cancel()
+	// rows, _ := r.db.QueryContext(ctx, "SELECT id, name, email, phone FROM users")
 	rows, err := r.db.QueryContext(ctx, "SELECT id, name, email, phone FROM users")
 	if err != nil {
 		return nil, err
@@ -69,7 +70,8 @@ func (r *repository) Find() ([]*repo.UserModel, error) {
 			&user.ID,
 			&user.Name,
 			&user.Email,
-			&user.Phone)
+			&user.Phone,
+		)
 
 		if err != nil {
 
