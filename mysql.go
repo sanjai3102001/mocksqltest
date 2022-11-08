@@ -60,7 +60,7 @@ func (r *repository) Find() ([]*repo.UserModel, error) {
 	defer cancel()
 	rows, err := r.db.QueryContext(ctx, "SELECT id, name, email, phone FROM users")
 	if err != nil {
-		fmt.Println("got an error while getting the rows", err)
+		fmt.Errorf("unable to find %v", err)
 	}
 	defer rows.Close()
 
