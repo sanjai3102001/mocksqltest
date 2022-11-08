@@ -96,13 +96,11 @@ func TestFindError(t *testing.T) {
 	rows := sqlmock.NewRows([]string{"id", "name", "email", "phone"}).
 		AddRow(u.ID, u.Name, u.Email, u.Phone)
 
-	res := mock.ExpectQuery(query).WillReturnRows(rows)
-	if res == nil {
-		users, err := repo.Find()
-		assert.NoError(t, err)
-		assert.NotEmpty(t, users)
+	prep := mock.ExpectPrepare(query)
+	prep.ExpectExec().WithArgs(rows).WillReturnResult(sqlmock.NewResult(0, 1))
 
-	}
+	_, err := repo.Find()
+	assert.Error(t, err)
 
 	// users, err := repo.Find()
 	// assert.NotEmpty(t, users)
