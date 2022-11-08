@@ -3,6 +3,7 @@ package main
 import (
 	"context"
 	"database/sql"
+	"log"
 	"time"
 
 	repo "github.com/moemoe89/go-unit-test-sql/repository"
@@ -60,7 +61,7 @@ func (r *repository) Find() ([]*repo.UserModel, error) {
 	// rows, _ := r.db.QueryContext(ctx, "SELECT id, name, email, phone FROM users")
 	rows, err := r.db.QueryContext(ctx, "SELECT id, name, email, phone FROM users")
 	if err != nil {
-		return nil, err
+		log.Fatalf("an error '%s' in finding ddatabase", err)
 	}
 	defer rows.Close()
 
@@ -75,7 +76,7 @@ func (r *repository) Find() ([]*repo.UserModel, error) {
 
 		if err != nil {
 
-			return nil, err
+			log.Fatalf("an error '%s' in finding ddatabase", err)
 		}
 		users = append(users, user)
 	}
