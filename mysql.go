@@ -66,7 +66,7 @@ func (r *repository) Find() ([]*repo.UserModel, error) {
 
 	for rows.Next() {
 		user := new(repo.UserModel)
-		err := rows.Scan(
+		rows.Scan(
 			&user.ID,
 			&user.Name,
 			&user.Email,
