@@ -74,12 +74,12 @@ func (r *repository) Find() ([]*repo.UserModel, error) {
 		)
 
 		if err != nil {
-			return nil, err
+			return users, err
 		}
 		users = append(users, user)
 	}
 
-	return users, err
+	return users, nil
 }
 
 // Create attaches the user repository and creating the data
