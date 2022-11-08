@@ -73,9 +73,6 @@ func (r *repository) Find() ([]*repo.UserModel, error) {
 			&user.Phone,
 		)
 
-		if err != nil {
-			return nil, err
-		}
 		users = append(users, user)
 	}
 
