@@ -93,7 +93,7 @@ func TestFindError(t *testing.T) {
 
 	query := "SELECT id, name, email, phone FROM users"
 
-	rows := sqlmock.NewRows([]string{"id", "name", "email", "phonee"}).
+	rows := sqlmock.NewRows([]string{"id", "name", "email", "phone"}).
 		AddRow(u.ID, u.Name, u.Email, u.Phone)
 
 	prep := mock.ExpectPrepare(query)
