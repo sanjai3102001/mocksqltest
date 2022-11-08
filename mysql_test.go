@@ -84,6 +84,7 @@ func TestFind(t *testing.T) {
 	assert.NoError(t, err)
 	assert.Len(t, users, 1)
 }
+
 func TestFindError(t *testing.T) {
 	db, mock := NewMock()
 	repo := &repository{db}
@@ -109,6 +110,25 @@ func TestFindError(t *testing.T) {
 	// assert.NotEmpty(t, users)
 	// assert.NoError(t, err)
 	// assert.Len(t, users, 1)
+}
+
+func TestFindErrortwo(t *testing.T) {
+	db, mock := NewMock()
+	repo := &repository{db}
+	defer func() {
+		repo.Close()
+	}()
+
+	query := "SELECT id, name, email, phone FROM userss"
+
+	rows := sqlmock.NewRows([]string{"id", "name", "email", "phone"}).
+		AddRow(u.ID, u.Name, u.Email, u.Phone)
+
+	mock.ExpectQuery(query).WillReturnRows(rows)
+
+	users, _ := repo.Find()
+	assert.Empty(t, users)
+	assert.Len(t, users, 0)
 }
 
 func TestCreate(t *testing.T) {
