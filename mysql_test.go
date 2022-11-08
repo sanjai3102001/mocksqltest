@@ -126,7 +126,8 @@ func TestFindErrortwo(t *testing.T) {
 
 	mock.ExpectQuery(query).WillReturnRows(rows)
 
-	users, _ := repo.Find()
+	users, err := repo.Find()
+	assert.Error(t, err)
 	assert.Empty(t, users)
 	assert.Len(t, users, 0)
 }
