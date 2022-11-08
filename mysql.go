@@ -3,7 +3,6 @@ package main
 import (
 	"context"
 	"database/sql"
-	"fmt"
 	"time"
 
 	repo "github.com/moemoe89/go-unit-test-sql/repository"
@@ -58,10 +57,10 @@ func (r *repository) Find() ([]*repo.UserModel, error) {
 
 	ctx, cancel := context.WithTimeout(context.Background(), 2*time.Millisecond)
 	defer cancel()
-	rows, _ := r.db.QueryContext(ctx, "SELECT id, name, email, phone FROM users")
+	rows, err := r.db.QueryContext(ctx, "SELECT id, name, email, phone FROM users")
 	// rows, err := r.db.QueryContext(ctx, "SELECT id, name, email, phone FROM users")
-	if rows == nil {
-		return nil, fmt.Errorf("error in db while checking")
+	if err != nil {
+		return nil, err
 	}
 	defer rows.Close()
 
@@ -76,7 +75,7 @@ func (r *repository) Find() ([]*repo.UserModel, error) {
 
 		if err != nil {
 
-			return nil, fmt.Errorf("error in db while checking: %w", err)
+			return nil, err
 		}
 		users = append(users, user)
 	}
