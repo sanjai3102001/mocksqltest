@@ -8,10 +8,10 @@ go-postgres/mysql.go:37.30,39.2 1 1
 go-postgres/mysql.go:42.67,49.16 5 1
 go-postgres/mysql.go:52.2,52.18 1 1
 go-postgres/mysql.go:49.16,51.3 1 1
-go-postgres/mysql.go:56.56,62.17 5 1
+go-postgres/mysql.go:56.56,62.16 5 1
 go-postgres/mysql.go:65.2,67.18 2 1
 go-postgres/mysql.go:82.2,82.19 1 1
-go-postgres/mysql.go:62.17,64.3 1 0
+go-postgres/mysql.go:62.16,64.3 1 0
 go-postgres/mysql.go:67.18,75.17 3 1
 go-postgres/mysql.go:79.3,79.30 1 1
 go-postgres/mysql.go:75.17,78.4 1 0
