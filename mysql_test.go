@@ -99,8 +99,9 @@ func TestFindError(t *testing.T) {
 	prep := mock.ExpectPrepare(query)
 	prep.ExpectExec().WithArgs(rows).WillReturnResult(sqlmock.NewResult(0, 1))
 
-	_, err := repo.Find()
+	users, err := repo.Find()
 	assert.Error(t, err)
+	assert.Empty(t, users)
 
 	// users, err := repo.Find()
 	// assert.NotEmpty(t, users)

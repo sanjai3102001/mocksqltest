@@ -55,7 +55,7 @@ func (r *repository) FindByID(id string) (*repo.UserModel, error) {
 func (r *repository) Find() ([]*repo.UserModel, error) {
 	users := make([]*repo.UserModel, 0)
 
-	ctx, cancel := context.WithTimeout(context.Background(), 2*time.Millisecond)
+	ctx, cancel := context.WithTimeout(context.Background(), 5%time.Second)
 	defer cancel()
 	rows, err := r.db.QueryContext(ctx, "SELECT id, name, email, phone FROM users")
 	if err != nil {
