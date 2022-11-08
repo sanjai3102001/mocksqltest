@@ -102,6 +102,7 @@ func TestFindError(t *testing.T) {
 	users, err := repo.Find()
 	assert.Error(t, err)
 	assert.Empty(t, users)
+	assert.Len(t, users, 0)
 
 	// users, err := repo.Find()
 	// assert.NotEmpty(t, users)
